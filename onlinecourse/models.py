@@ -95,7 +95,7 @@ class Enrollment(models.Model):
     rating = models.FloatField(default=5.0)
 
 class Question(models.Model):
-    course = models.ForeginKey(Course, on_delete=models.CASCADE)
+    course = models.ForeignKey(Course, on_delete=models.CASCADE)
     content = models.CharField(max_length=200)
     grade = models.IntegerField(default=1)
 
@@ -107,8 +107,8 @@ class Question(models.Model):
        else:
            return 0
 
-class Choice(models):
-    question = models.ForeginKey(Question, on_delete=models.CASCADE)
+class Choice(models.Model):
+    question = models.ForeignKey(Question, on_delete=models.CASCADE)
     content = content = models.CharField(max_length=200)
     is_correct =  models.BooleanField(default=False)
 
